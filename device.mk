@@ -15,22 +15,14 @@
 
 DEVICE_PACKAGE_OVERLAYS := $(LOCAL_PATH)/overlay
 
-# Extra LDPI overlay
-PRODUCT_PACKAGE_OVERLAYS += vendor/ldpi/overlay
-
 # Discard inherited values and use our own instead.
 PRODUCT_NAME := huawei_u8150
 PRODUCT_DEVICE := u8150
 PRODUCT_MODEL := U8150
 
-PRODUCT_AAPT_CONFIG := mdpi
-PRODUCT_AAPT_PREF_CONFIG := mdpi
-PRODUCT_LOCALES += mdpi
-
 # Graphics 
 PRODUCT_PACKAGES += \
     gralloc.u8150
-#    copybit.u8150
 
 # Audio
 PRODUCT_PACKAGES += \
@@ -55,8 +47,7 @@ PRODUCT_PACKAGES += \
     audio.usb.default \
     lights.u8150 \
     gps.u8150 \
-    camera.u8150 \
-    Apollo
+    camera.u8150
 
 PRODUCT_COPY_FILES += \
         device/common/gps/gps.conf_EU_SUPL:system/etc/gps.conf
@@ -133,5 +124,10 @@ PRODUCT_COPY_FILES += \
     device/huawei/u8150/prebuilt/usr/keylayout/melfas-touchscreen.Ver23.kl:system/usr/keylayout/melfas-touchscreen.Ver23.kl \
     device/huawei/u8150/prebuilt/usr/keylayout/melfas-touchscreen_ver23.kl:system/usr/keylayout/melfas-touchscreen_ver23.kl \
     device/huawei/u8150/prebuilt/usr/keylayout/synaptics-rmi-touchscreen.kl:system/usr/keylayout/synaptics-rmi-touchscreen.kl
+
+## LDPI assets
+PRODUCT_AAPT_CONFIG := normal mdpi ldpi
+PRODUCT_AAPT_PREF_CONFIG := ldpi
+$(call inherit-product, device/ldpi-common/ldpi.mk)
 
 $(call inherit-product, vendor/huawei/u8150/u8150-vendor.mk)
