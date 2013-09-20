@@ -22,7 +22,7 @@
 #include <binder/IMemory.h>
 #include <fcntl.h>
 #include <linux/ioctl.h>
-#include <linux/msm_mdp.h>
+#include "msm_mdp.h"
 #include <ui/Rect.h>
 #include <ui/GraphicBufferMapper.h>
 #include <dlfcn.h>
